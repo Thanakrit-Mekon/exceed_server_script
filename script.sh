@@ -3,7 +3,7 @@ mkdir /home/students
 for i in `seq -w 1 8`;
 do
      useradd -m -d /home/students/std0$i -g 30000 -u 3000$i std0$i
-     echo -e "1q2w3e4r\n1q2w3e4r" | passwd std0$i
+     echo "std0$i:1q2w3e4r" | chpasswd
      chage -d 0 std0$i
 done
 
