@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    restart: always
+    ports:
+      - 127.0.0.1:27017:27017
+  adminmongo:
+    image: exceed/adminmongo
+    build: ./adminmongo
+    network_mode: host
+    #volumes:
+    #  - ./config:/app/user/config
+    environment:
+      - HOST=0.0.0.0
